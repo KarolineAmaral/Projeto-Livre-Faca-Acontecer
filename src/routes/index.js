@@ -7,14 +7,24 @@ router.get('/', function (req, res) {
         title: "Faça Acontecer",
         version: "1.0.0"
     })
+
 })
 
-router.get('/instituicoes', controller.findAllInstituicoes);
+router.get('/instituicoes', function (req, res) {
+
+ controller.findAllInstituicoes (req,res)
+});
 router.post('/instituicao',function (req, res) {
     controller.registerNewInstituicao(req,res)
 });
 router.delete('/instituicao/:id',function (req, res) {
     controller.deleteInstituicao(req,res)
 });
+
+router.patch('/instituicoes/atualizar/:id', function (req, res) {
+
+ controller.updateinstituicoes (req, res)
+});
+
 
 module.exports = router
